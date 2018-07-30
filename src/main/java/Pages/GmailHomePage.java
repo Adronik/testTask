@@ -36,6 +36,7 @@ public class GmailHomePage extends BasePage {
         passwordField.sendKeys(password);
         Thread.sleep(700);;
         passwordField.sendKeys(Keys.RETURN);
+        Thread.sleep(700);
         return new InboxPage();
     }
 

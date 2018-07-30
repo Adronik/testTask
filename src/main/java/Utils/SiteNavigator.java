@@ -1,8 +1,7 @@
 package Utils;
 
 import Pages.GmailHomePage;
-
-import java.util.concurrent.TimeUnit;
+import Pages.InboxPage;
 
 public class SiteNavigator {
 
@@ -11,8 +10,8 @@ public class SiteNavigator {
         return new GmailHomePage();
     }
 
-    public static void waitForLoad() {
-        WebDriverManager.driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+    public static InboxPage openInboxPage() {
+        WebDriverManager.driver.get("https://mail.google.com/mail/u/0/#inbox");
+        return new InboxPage();
     }
-
 }
