@@ -21,6 +21,19 @@ public class InboxPage extends BasePage {
     @FindBy(xpath = "//div[@role='textbox']")
     private WebElement textBody;
 
+    @FindBy(xpath = "//div[@data-tooltip='Удалить']/descendant::div[@class='asa']")
+    private WebElement deleteEmailButton;
+
+    @FindBy(xpath = "//td[contains(@class,'aid')]/child::div[@role='checkbox']")
+    private WebElement emailCheckbox;
+
+    @FindBy(xpath = "//span[@class='Zt']/parent::span[@class='y2']")
+    private WebElement emailBodyText;
+
+    @FindBy(xpath = "//span[@class='bog']/child::span[@class='bqe']")
+    private WebElement emailThemeText;
+
+
 
     public InboxPage clickOnWriteButton() throws InterruptedException {
         Thread.sleep(2000);
@@ -52,6 +65,19 @@ public class InboxPage extends BasePage {
         Thread.sleep(500);
         sendButton.click();
         return new InboxPage();
+    }
+
+    public boolean emailThemeTextisCorrect() throws InterruptedException {
+        Thread.sleep(700);
+        String themeEmail = emailThemeText.getText();
+        return themeEmail.equals("test Theme");
+    }
+
+    public boolean emailBodyTextIsCorrect() throws InterruptedException {
+        Thread.sleep(700);
+        String bodyEmail = emailBodyText.getText();
+        System.out.println(bodyEmail);
+        return bodyEmail.equals(" - test Body");
     }
 
 }
