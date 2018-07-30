@@ -29,7 +29,7 @@ public class InboxPage extends BasePage {
     }
 
     public InboxPage fillInEmailToField(String emailTo) throws InterruptedException {
-        Thread.sleep(700);
+        Thread.sleep(400);
         toField.sendKeys(emailTo);
         return new InboxPage();
     }
@@ -42,6 +42,8 @@ public class InboxPage extends BasePage {
 
     public InboxPage fillInEmailBody(String emailBody) throws InterruptedException {
         Thread.sleep(700);
+        textBody.click();
+        Thread.sleep(500);
         textBody.sendKeys(emailBody);
         return new InboxPage();
     }
