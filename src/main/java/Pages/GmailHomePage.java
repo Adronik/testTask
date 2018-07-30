@@ -28,10 +28,14 @@ public class GmailHomePage extends BasePage {
 
     public InboxPage submitCredentials (String email, String password) throws InterruptedException {
         enterButton.click();
+        Thread.sleep(700);
         emailField.sendKeys(email);
+        Thread.sleep(700);
         nextButton.click();
+        Thread.sleep(700);
         passwordField.sendKeys(password);
-        nextButtonAfterPassword.sendKeys(Keys.RETURN);
+        Thread.sleep(700);;
+        passwordField.sendKeys(Keys.RETURN);
         return new InboxPage();
     }
 
